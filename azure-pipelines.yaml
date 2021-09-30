@@ -1,0 +1,19 @@
+# Run pipeline whenever a commit or tag is pushed
+trigger:
+  branches:
+    include:
+    - '*'
+  tags:
+    include: 
+    - '*'
+
+variables:
+  BuildConfiguration: release
+
+steps:
+- task: ShellScript@2
+  displayName: 'hello world'
+  inputs:
+    scriptPath: echo 'hello world'
+    
+
