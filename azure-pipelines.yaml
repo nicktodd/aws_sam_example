@@ -14,6 +14,6 @@ steps:
 - task: ShellScript@2
   displayName: 'hello world'
   inputs:
-    scriptPath: echo 'hello world'
+    scriptPath: ./commands.sh
     
 
