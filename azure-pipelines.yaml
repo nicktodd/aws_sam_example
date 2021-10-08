@@ -1,19 +1,25 @@
-# Run pipeline whenever a commit or tag is pushed
-trigger:
-  branches:
-    include:
-    - '*'
-  tags:
-    include: 
-    - '*'
+  # Run pipeline whenever a commit or tag is pushed
+  trigger:
+    branches:
+      include:
+      - '*'
+    tags:
+      include: 
+      - '*'
 
-variables:
-  BuildConfiguration: release
+  variables:
+    BuildConfiguration: release
 
-steps:
-- task: ShellScript@2
-  displayName: 'hello world'
-  inputs:
-    scriptPath: ./commands.sh
-    
-
+    # Sample Shell script command
+  steps:
+  - task: ShellScript@2
+    displayName: 'hello world'
+    inputs:
+      scriptPath: ./commands.sh
+      
+    # Sample AWS CLI Command
+  - task: AWSCLI@1
+    inputs:
+      regionName: 'eu-west-1'
+      awsCommand: 's3'
+      awsSubCommand: 'ls'
