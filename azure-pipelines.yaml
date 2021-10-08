@@ -19,15 +19,18 @@
       versionSpec: '10.x'
     displayName: 'Install Node.js'
 
-  - script: |
 #     Install the dependencies
-      npm install
 #     Run the tests
-      npm run test
 #     Remove the tests before we package up for deployment      
-      rm -rf ./__tests__
-#      npm run build
-    displayName: 'npm install and test'
+
+  - task: Npm@1
+    displayName: Install Application Dependencies
+    
+  #- script: |
+  #    npm install
+  #    npm run test
+  #    rm -rf ./__tests__
+  #  displayName: 'npm install and test'
 
  
   - task: AWSCLI@1
