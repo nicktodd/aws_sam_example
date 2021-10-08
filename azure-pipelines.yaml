@@ -43,8 +43,8 @@
 
 
   - task: AWSCLI@1
-      inputs:
-        regionName: 'eu-west-1'
-        awsCommand: 'cloudformation'
-        awsSubCommand: 'deploy'
-        awsArguments: '--template-file template-export.yml --stack-name AzureDevopsAlbumStack --capabilities CAPABILITY_IAM'
+    inputs:
+      regionName: 'eu-west-1'
+      awsCommand: 'cloudformation'
+      awsSubCommand: 'deploy'
+      awsArguments: '--template-file template-export.yml --stack-name AzureDevopsAlbumStack --capabilities CAPABILITY_IAM'
