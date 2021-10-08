@@ -21,7 +21,12 @@ Globals:
     Runtime: nodejs14.x
     MemorySize: 128
     Timeout: 100
-  
+  Api:
+    Cors:
+      AllowMethods: "'GET,POST,OPTIONS'"
+      AllowHeaders: "'content-type'"
+      AllowOrigin: "'*'"
+      AllowCredentials: "'*'"
 
 
 # Resources declares the AWS resources that you want to include in the stack

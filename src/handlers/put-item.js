@@ -41,10 +41,15 @@ exports.putItemHandler = async (event) => {
     const result = await docClient.put(params).promise();
 
     const response = {
+        headers: {
+          "Access-Control-Allow-Origin": "*", // Required for CORS support to work
+          "Access-Control-Allow-Credentials": true // Required for cookies, authorization headers with HTTPS
+        },
         statusCode: 200,
         body: JSON.stringify(body)
-    };
+      };
 
+    
     // All log statements are written to CloudWatch
     console.info(`response from: ${event.path} statusCode: ${response.statusCode} body: ${response.body}`);
     return response;
