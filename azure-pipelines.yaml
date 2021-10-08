@@ -20,13 +20,20 @@
     displayName: 'Install Node.js'
 
   - script: |
+#     Install the dependencies
       npm install
+#     Run the tests
+      npm run test
+#     Remove the tests before we package up for deployment      
+      rm -rf ./__tests__
 #      npm run build
-    displayName: 'npm install and build'
+    displayName: 'npm install and test'
 
  
   - task: AWSCLI@1
+  # Run the following command: aws cloudformation package --template template.yml --s3-bucket $S3_BUCKET --output-template template-export.yml
     inputs:
       regionName: 'eu-west-1'
-      awsCommand: 's3'
-      awsSubCommand: 'ls'
+      awsCommand: 'cloudformation'
+      awsSubCommand: 'package'
+      awsArguments: '--template template.yml --s3-bucket aws-sam-cli-managed-default-samclisourcebucket-1kni8z5nxcykx --output-template template-export.yml'
