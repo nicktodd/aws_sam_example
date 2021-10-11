@@ -1,0 +1,72 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: NickSAMAlbums
+Transform:
+- AWS::Serverless-2016-10-31
+Globals:
+  Function:
+    Environment:
+      Variables:
+        TABLE_NAME: nick_albums
+    Runtime: nodejs14.x
+    MemorySize: 128
+    Timeout: 100
+  Api:
+    Cors:
+      AllowMethods: "'GET,POST,OPTIONS'"
+      AllowHeaders: "'content-type'"
+      AllowOrigin: "'*'"
+      AllowCredentials: "'*'"
+Resources:
+  getAllItemsFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/handlers/get-all-items.getAllItemsHandler
+      Description: A simple example includes a HTTP get method to get all items from
+        a DynamoDB table.
+      Policies:
+      - DynamoDBCrudPolicy:
+          TableName: nick_albums
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /
+            Method: GET
+      CodeUri: s3://aws-sam-cli-managed-default-samclisourcebucket-1kni8z5nxcykx/2095846e9b49ba1baa36aceb1ec5b18d
+  getByIdFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/handlers/get-by-id.getByIdHandler
+      Description: A simple example includes a HTTP get method to get one item by
+        id from a DynamoDB table.
+      Policies:
+      - DynamoDBCrudPolicy:
+          TableName: nick_albums
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /{id}
+            Method: GET
+      CodeUri: s3://aws-sam-cli-managed-default-samclisourcebucket-1kni8z5nxcykx/2095846e9b49ba1baa36aceb1ec5b18d
+  putItemFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/handlers/put-item.putItemHandler
+      Description: A simple example includes a HTTP post method to add one item to
+        a DynamoDB table.
+      Policies:
+      - DynamoDBCrudPolicy:
+          TableName: nick_albums
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /
+            Method: POST
+      CodeUri: s3://aws-sam-cli-managed-default-samclisourcebucket-1kni8z5nxcykx/2095846e9b49ba1baa36aceb1ec5b18d
+Outputs:
+  WebEndpoint:
+    Description: API Gateway endpoint URL for Prod stage
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/
