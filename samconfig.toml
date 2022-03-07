@@ -3,7 +3,7 @@ version = 0.1
 [default.deploy]
 [default.deploy.parameters]
 stack_name = "NickAlbumStack"
-s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1kni8z5nxcykx"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-p7wqfpig28su"
 s3_prefix = "NickAlbumStack"
 region = "eu-west-1"
 confirm_changeset = true

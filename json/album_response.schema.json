@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "artist",
+      "album_id",
+      "price",
+      "tracks",
+      "title"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "artist": {
+        "type": "string"
+      },
+      "album_id": {
+        "type": "string"
+      },
+      "price": {
+        "type": "string"
+      },
+      "tracks": {
+        "type": "string"
+      },
+      "title": {
+        "type": "string"
+      }
+    }
+  }
+}

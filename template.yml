@@ -18,7 +18,7 @@ Globals:
       # Currently these are only used by final Lambda. However, they can all be amended to use these variables
       Variables:
         TABLE_NAME: nick_albums
-    Runtime: nodejs14.x
+    Runtime: nodejs12.x
     MemorySize: 128
     Timeout: 100
   Api:
