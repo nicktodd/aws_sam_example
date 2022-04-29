@@ -32,7 +32,7 @@
       regionName: 'eu-west-1'
       awsCommand: 'cloudformation'
       awsSubCommand: 'package'
-      awsArguments: '--template template.yml --s3-bucket aws-sam-cli-managed-default-samclisourcebucket-1kni8z5nxcykx --output-template template-export.yml'
+      awsArguments: '--template template.yml --s3-bucket aws-sam-cli-managed-default-samclisourcebucket-p7wqfpig28su --output-template template-export.yml'
 
 
   - task: AWSCLI@1

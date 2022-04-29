@@ -7,7 +7,7 @@ Globals:
     Environment:
       Variables:
         TABLE_NAME: nick_albums
-    Runtime: nodejs14.x
+    Runtime: nodejs12.x
     MemorySize: 128
     Timeout: 100
   Api:
@@ -32,7 +32,7 @@ Resources:
           Properties:
             Path: /
             Method: GET
-      CodeUri: s3://aws-sam-cli-managed-default-samclisourcebucket-1kni8z5nxcykx/2095846e9b49ba1baa36aceb1ec5b18d
+      CodeUri: s3://aws-sam-cli-managed-default-samclisourcebucket-p7wqfpig28su/f61f039f4f54246dfa6181ea484af336
   getByIdFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -48,7 +48,7 @@ Resources:
           Properties:
             Path: /{id}
             Method: GET
-      CodeUri: s3://aws-sam-cli-managed-default-samclisourcebucket-1kni8z5nxcykx/2095846e9b49ba1baa36aceb1ec5b18d
+      CodeUri: s3://aws-sam-cli-managed-default-samclisourcebucket-p7wqfpig28su/f61f039f4f54246dfa6181ea484af336
   putItemFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -64,7 +64,7 @@ Resources:
           Properties:
             Path: /
             Method: POST
-      CodeUri: s3://aws-sam-cli-managed-default-samclisourcebucket-1kni8z5nxcykx/2095846e9b49ba1baa36aceb1ec5b18d
+      CodeUri: s3://aws-sam-cli-managed-default-samclisourcebucket-p7wqfpig28su/f61f039f4f54246dfa6181ea484af336
 Outputs:
   WebEndpoint:
     Description: API Gateway endpoint URL for Prod stage
